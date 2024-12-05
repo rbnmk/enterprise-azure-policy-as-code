@@ -403,7 +403,7 @@ function Build-AssignmentDefinitionNode {
                         if ($notScope -match "subscriptionsPattern") {
                             $thisScopeChildren.Keys | Foreach-Object {
                                 if ($thisScopeChildren.$_.type -eq "/subscriptions") {
-                                    if ($notScope.split("/")[-1] -like $thisScopeChildren.$_.displayName) {
+                                    if ($thisScopeChildren.$_.displayName -like $notScope.split("/")[-1]) {
                                         $null = $thisNotScopeList.Add($thisScopeChildren.$_.id)
                                     }
                                 }
